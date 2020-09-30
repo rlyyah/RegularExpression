@@ -60,5 +60,20 @@ print(result)
 result = re.search(pattern, '')
 print(result)
 
+# Checking for Hundreds
+print()
 
+pattern = '^M?M?M?(CM|CD|D?C?C?C?)$'
+result = re.search(pattern, 'MCM')
+print(result)
+result = re.search(pattern, 'MD')
+print(result)
+result = re.search(pattern, 'MMMCCC')
+print(result)
+result = re.search(pattern, 'MMMCCC')
+print(result)
+result = re.search(pattern, 'MCMC')
+print(result)
+result = re.search(pattern, '')
+print(result)
 
