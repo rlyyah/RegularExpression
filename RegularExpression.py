@@ -34,5 +34,31 @@ for name in street_adresses:
 print(fixed_street_adresses)
 
 
+# Roman Numerals
+
+'''
+I = 1
+V = 5
+X = 10
+L = 50
+C = 100
+D = 500
+M = 1000
+'''
+
+# Checking for Thousands
+
+pattern = '^M?M?M?$'
+result = re.search(pattern, 'M')
+print(result)
+result = re.search(pattern, 'MM')
+print(result)
+result = re.search(pattern, 'MMM')
+print(result)
+result = re.search(pattern, 'MMMM')
+print(result)
+result = re.search(pattern, '')
+print(result)
+
 
 
