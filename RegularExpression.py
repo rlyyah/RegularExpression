@@ -135,3 +135,31 @@ result = re.search(pattern, 'MMMDCCCLXXXVIII')
 print(result)
 result = re.search(pattern, 'I')
 print(result)
+
+# VerboseRegularExpressions
+print()
+'''
+- Whitespace is ignored. Spaces, tabs, and carriage returns are not matched 
+as spaces, tabs, and carriage returns. They’re not matched at all.
+- Comments are ignored. A comment in a verbose regular expression 
+is just like a comment in Python code: it starts with a # character 
+and goes until the end of the line.
+'''
+
+pattern = '''
+^               # beginning of string
+M{0,3}          # thousands - 0 to 3 M's
+(CM|D|D?C{0,3}) # hundreds - 900(CM), 400(CD), 0-300 (0 to 3 C's)
+                #            or 500 to 800 (D, followed by 0 to 3 C's)
+(XC|XL|L?X{0,3})# tens - 90(XC), 40(XL), 0-30 (0 to 3 X's)
+                #        or 50 to 80 (L, followed by 0 to 3 X's)
+(IX|IV|V?I{0,3})# ones - 9(IX), 4(IV), 0-3 (0 to 3 I's)
+                #        or 5 to 8 (V, followed by 0 to 3 I's)
+$               # end of string      
+'''
+result = re.search(pattern, 'M', re.VERBOSE)
+print(result)
+result = re.search(pattern, 'MCCCXXXVII', re.VERBOSE)
+print(result)
+result = re.search(pattern, 'MMMDCCCLXXXVIII', re.VERBOSE)
+print(result)
