@@ -10,6 +10,8 @@ I recommend always using raw strings when dealing with regular expressions
 "^..." - at the beginning of the string
 "\b..." - a word boundary must occur here
 r"..." - makes string "RAW" so nothing in this string should be escaped
+"(A|B|C)" - match exactly one of A, B, or C
+"A{n,m}" - Match the start of the string anywhere from n to m 'A' characters
 '''
 
 import re
@@ -94,6 +96,7 @@ print(result)
 
 # Checking for Tens and Ones
 print()
+# Checking for Tens
 
 pattern = '^M?M?M?(CM|CD|D?C?C?C?)(XC|XL|L?X?X?X?)$'
 result = re.search(pattern, 'MCMXL')
@@ -105,4 +108,17 @@ print(result)
 result = re.search(pattern, 'MCMLXXX')
 print(result)
 result = re.search(pattern, 'MMLXXXX')
+print(result)
+
+# Checking for Ones
+print()
+
+pattern = '^M?M?M?(CM|CD|D?C?C?C?)(XC|XL|L?X?X?X?)(IX|IV|V?I?I?I?)$'
+result = re.search(pattern, 'MDLV')
+print(result)
+result = re.search(pattern, 'MMDCLXVI')
+print(result)
+result = re.search(pattern, 'MMMDCCCLXXXVIII')
+print(result)
+result = re.search(pattern, 'I')
 print(result)
