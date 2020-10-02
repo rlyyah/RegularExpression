@@ -92,3 +92,17 @@ print(result)
 result = re.search(pattern, '')
 print(result)
 
+# Checking for Tens and Ones
+print()
+
+pattern = '^M?M?M?(CM|CD|D?C?C?C?)(XC|XL|L?X?X?X?)$'
+result = re.search(pattern, 'MCMXL')
+print(result)
+result = re.search(pattern, 'MCML')
+print(result)
+result = re.search(pattern, 'MCMLX')
+print(result)
+result = re.search(pattern, 'MCMLXXX')
+print(result)
+result = re.search(pattern, 'MMLXXXX')
+print(result)
