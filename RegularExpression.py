@@ -77,3 +77,18 @@ print(result)
 result = re.search(pattern, '')
 print(result)
 
+# Using {n,m} Syntax
+print()
+
+pattern = "^M{0,3}$"
+result = re.search(pattern, 'M')
+print(result)
+result = re.search(pattern, 'MM')
+print(result)
+result = re.search(pattern, 'MMM')
+print(result)
+result = re.search(pattern, 'MMMM')
+print(result)
+result = re.search(pattern, '')
+print(result)
+
