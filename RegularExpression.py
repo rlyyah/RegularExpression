@@ -122,3 +122,16 @@ result = re.search(pattern, 'MMMDCCCLXXXVIII')
 print(result)
 result = re.search(pattern, 'I')
 print(result)
+
+# Checking for ones - clearer solution
+print()
+
+pattern = '^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$'
+result = re.search(pattern, 'MDLV')
+print(result)
+result = re.search(pattern, 'MMDCLXVI')
+print(result)
+result = re.search(pattern, 'MMMDCCCLXXXVIII')
+print(result)
+result = re.search(pattern, 'I')
+print(result)
