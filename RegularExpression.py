@@ -237,3 +237,37 @@ print('\n looping through test cases\n')
 grouped_numbers = [phonePattern.search(case).groups() for case in test_cases]
 print(grouped_numbers)
 
+# Verbose that shit!
+
+phonePattern = re.compile(r'''
+                # do not match beginning of string, number can start anywhere
+(\d{3})         # area code is 3 digits (e.g. '800')
+\D*             # optional separator is any number of non-digits
+(\d{3})         # trunk is 3 digits (e.g. '555')
+\D*             # optional separator
+(\d{4})         # rest of number is 4 digits (e.g. '1212')
+\D*             # optional separator
+(\d*)           # extension is optional and can be any number of digits
+$               # end of string 
+''', re.VERBOSE)
+
+print('\n looping through test cases again\n')
+
+results_of_search = [phonePattern.search(case) for case in test_cases]
+print(results_of_search)
+numbers_grouped = [phonePattern.search(case).groups() for case in test_cases]
+print(numbers_grouped)
+
+'''
+^ matches the beginning of a string.
+$ matches the end of a string.
+\b matches a word boundary.
+\d matches any numeric digit.
+\D matches any non-numeric character.
+x? matches an optional x character (in other words, it matches an x zero or one times).
+x* matches x zero or more times.
+x+ matches x one or more times.
+x{n,m} matches an x character at least n times, but not more than m times.
+(a|b|c) matches exactly one of a, b or c.
+(x) in general is a remembered group. You can get the value of what matched by using the groups() method of the object returned by re.search.
+'''
