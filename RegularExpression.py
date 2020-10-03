@@ -218,3 +218,15 @@ result = phonePattern.search('800-555-1212').groups()
 print(result)
 result = phonePattern.search('work 1-(800) 555.1212 #1234')
 print(result)
+
+# Sixth step
+
+print('\n 6th step \n')
+
+phonePattern = re.compile(r'(\d{3})\D*(\d{3})\D*(\d{4})\D*(\d*)$')
+result = phonePattern.search('work 1-(800) 555.1212 #1234').groups()
+print(result)
+result = phonePattern.search('800-555-1212').groups()
+print(result)
+result = phonePattern.search('80055512121234').groups()
+print(result)
