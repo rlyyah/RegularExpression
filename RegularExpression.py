@@ -230,3 +230,10 @@ result = phonePattern.search('800-555-1212').groups()
 print(result)
 result = phonePattern.search('80055512121234').groups()
 print(result)
+
+# Let's loop through every case
+
+print('\n looping through test cases\n')
+grouped_numbers = [phonePattern.search(case).groups() for case in test_cases]
+print(grouped_numbers)
+
