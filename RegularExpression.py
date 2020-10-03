@@ -15,6 +15,8 @@ r"..." - makes string "RAW" so nothing in this string should be escaped
 '\d{3}' - Any numeric digit (0-9) and match exactly 3
 '\D' - matches any character except a numeric digit
 '+' - one or more
+'*' - zero or more
+
 '''
 
 import re
@@ -204,4 +206,15 @@ print(result)
 result = phonePattern.search('800.555.1212.1234').groups()
 print(result)
 result = phonePattern.search('800-555-1212').groups()
+print(result)
+
+# Fifth step
+print('\n 5th step \n')
+
+phonePattern = re.compile(r'^\D*(\d{3})\D*(\d{3})\D*(\d{4})\D*(\d*)$')
+result = phonePattern.search('(800)5551212 ext. 1234').groups()
+print(result)
+result = phonePattern.search('800-555-1212').groups()
+print(result)
+result = phonePattern.search('work 1-(800) 555.1212 #1234')
 print(result)
