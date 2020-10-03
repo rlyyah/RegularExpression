@@ -12,6 +12,8 @@ I recommend always using raw strings when dealing with regular expressions
 r"..." - makes string "RAW" so nothing in this string should be escaped
 "(A|B|C)" - match exactly one of A, B, or C
 "A{n,m}" - Match the start of the string anywhere from n to m 'A' characters
+'\d{3}' - Any numeric digit (0-9) and match exactly 3
+
 '''
 
 import re
@@ -162,4 +164,19 @@ print(result)
 result = re.search(pattern, 'MCCCXXXVII', re.VERBOSE)
 print(result)
 result = re.search(pattern, 'MMMDCCCLXXXVIII', re.VERBOSE)
+print(result)
+
+# Parsing Phone Numbers
+print()
+
+test_cases = ['800-555-1212', '800 555 1212', '800.555.1212', '(800) 555-1212',
+'1-800-555-1212', '800-555-1212-1234', '800-555-1212x1234', '800-555-1212 ext. 1234',
+'work 1-(800) 555.1212 #1234']
+
+for test in test_cases:
+    print(test)
+
+
+phonePattern = re.compile(r'^(\d{3})-(\d{3})-(\d{4})$')
+result = phonePattern.search('800-555-1212').groups()
 print(result)
