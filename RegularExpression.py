@@ -13,7 +13,8 @@ r"..." - makes string "RAW" so nothing in this string should be escaped
 "(A|B|C)" - match exactly one of A, B, or C
 "A{n,m}" - Match the start of the string anywhere from n to m 'A' characters
 '\d{3}' - Any numeric digit (0-9) and match exactly 3
-
+'\D' - matches any character except a numeric digit
+'+' - one or more
 '''
 
 import re
@@ -193,4 +194,14 @@ print(result)
 result = phonePattern.search('80055512121234')
 print(result)
 result = phonePattern.search('800-555-1212')
+print(result)
+
+# Third step
+
+phonePattern = re.compile(r'^(\d{3})\D*(\d{3})\D*(\d{4})\D*(\d*)$')
+result = phonePattern.search('80055512121234').groups()
+print(result)
+result = phonePattern.search('800.555.1212.1234').groups()
+print(result)
+result = phonePattern.search('800-555-1212').groups()
 print(result)
